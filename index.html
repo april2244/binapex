@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/qunit/qunit.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script
+      src="https://cdn.plot.ly/plotly-2.29.1.min.js"
+      charset="utf-8"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <div style="display: flex; ">
+      <div style="flex: 3;">
+          <input type="checkbox" id="playSoundCheckbox" />
+          <label for="playSoundCheckbox">Play Sound</label>
+          <div id="labels">
+            <span class="label" onclick="changeColor(this)">1s</span>
+            <span class="label" onclick="changeColor(this)">1m</span>
+            <span class="label" onclick="changeColor(this)">3m</span>
+            <span class="label" onclick="changeColor(this)">5m</span>
+            <span class="label" onclick="changeColor(this)">15m</span>
+            <span class="label" onclick="changeColor(this)">30m</span>
+            <span class="label" onclick="changeColor(this)">1h</span>
+            <span class="label" onclick="changeColor(this)">4h</span>
+            <span class="label" onclick="changeColor(this)">1d</span>
+            <span class="label" onclick="changeColor(this)">1w</span>
+            <span class="label" onclick="changeColor(this)">1M</span>
+
+
+
+        </div>
+          <audio id="alertSound" src="js/1023.mp3" preload="auto"></audio>
+          <audio id="alertSound2" src="js/640g.mp3" preload="auto"></audio>
+          <div id="chart" ></div>
+      </div>
+      <div style="flex: 1;">
+          <div id="myDiv"></div>
+          <div id="price" style="width: 180px; height: 40px; display: flex; align-items: center; color: white; padding: 10px;">
+              <div>
+                  <span>Current Price:</span>
+                  <p id="demo" style="color: white; font-size: 40px">hi</p>
+              </div>
+              <div>
+                  <p id="alertprice">alertprice</p>
+              </div>
+          </div>
+          <canvas id="priceChart"></canvas>
+      </div>
+  </div>
+  <style>
+    .label {
+        cursor: pointer;
+        padding: 1px 1px;
+        margin: 0px;
+        border: 1px solid #ccc;
+        border-radius: 0px;
+        user-select: none; /* Prevent text selection */
+    }
+    
+    .selected {
+        background-color: lightblue;
+    }
+</style>
+
+
+
+
+
+
+    <script src="js/chart.js"></script>
+    <script src="js/apex.js"></script>
+
+    <!--
+    <script>
+      var burl = "https://api.binance.com";
+      var query = "/api/v3/klines";
+      query += "?symbol=BTCUSDT&interval=15m&limit=2";
+      var url = burl + query;
+      var ourRequest = new XMLHttpRequest();
+      ourRequest.open("GET", url, true);
+      ourRequest.onload = function () {
+        // Will convert the string to something Javascript can understand
+        var result = JSON.parse(ourRequest.responseText);
+        // You can now use it as an array
+      };
+      ourRequest.send();
+      myFunction();
+      updateChart;
+      // Refresh the function every 1 second
+      setInterval(myFunction, 1000);
+    
+    </script>
+  --></body>
+</html>
